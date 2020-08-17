@@ -13,58 +13,59 @@
 <section>
 	<div class="container">
 		<div class="col-sm-6">
-		<form method="post" action="{{route('petregister')}}">
-      
+		<form method="post" action="{{route('petregister.update',$pet->id)}}">
 			@csrf
+      @method('PUT')
 			<h2>Pet Registration Form</h2>
-
 			 <div class="form-group">
+         
    				<label >Owner Name: </label>
-    			<input type="text" class="form-control" id="name" name="oname" >
+    			<input type="text" class="form-control" id="name" name="oname" value="{{$pet->oname}}" >
   			</div>
          <div class="form-group">
           <label >Date: </label>
-          <input type="date" class="form-control" id="date" name="date" >
+          <input type="date" class="form-control" id="date" name="date" value="{{$pet->date}}" >
         </div>
   			<div class="form-group">
    				<label >Pet Name:</label>
-    			<input type="text" class="form-control" id="panme" name="pname">
+    			<input type="text" class="form-control" id="panme" name="pname" value="{{$pet->pname}}">
   			</div>
         <div class="form-group">
             <label >Gender:</label>
-            <input type="radio" aria-label="Male" value="Male" name='gender'>Male
-            <input type="radio" aria-label="Female" value="Female" name='gender'>Female
+            <input type="radio" aria-label="Male" value="Male" name='gender' value="{{$pet->gender}}">Male
+            <input type="radio" aria-label="Female" value="Female" name='gender' value="{{$pet->gender}}">Female
         </div>
   			<div class="form-group">
    				<label >Age:</label>
-    			<input type="text" class="form-control" id="age" name="age" >
+    			<input type="text" class="form-control" id="age" name="age" value="{{$pet->age}}" >
   			</div>
         
   			<div class="form-group">
    				<label >Pet Type:</label>
-    			<input type="text" class="form-control" id="type" name="type">
+    			<input type="text" class="form-control" id="type" name="type" value="{{$pet->type}}">
   			</div>
         <div class="form-group">
           <label >Pet Color:</label>
-          <input type="text" class="form-control" id="color" name="color">
+          <input type="text" class="form-control" id="color" name="color" value="{{$pet->color}}">
         </div>
         <div class="form-group">
           <label >Phone no:</label>
-          <input type="text" class="form-control" id="type" name="phone">
+          <input type="text" class="form-control" id="type" name="phone" value="{{$pet->phone}}">
         </div>
         <div class="form-group">
           <label >Address:</label>
-          <input type="text" class="form-control" id="type" name="add">
+          <input type="text" class="form-control" id="type" name="add" value="{{$pet->add}}">
         </div>
  			<div class="form-group">
    				<label for="exampleInputEmail1">Email:</label>
-    			<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    			<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{$pet->email}}">
     			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   			</div>
   			<div class="form-group">
     			<label for="exampleInputPassword1">Password</label>
-    			<input type="password" class="form-control" id="pwd" name="pwd">
+    			<input type="password" class="form-control" id="pwd" name="pwd" value="{{$pet->email}}">
  			</div>
+       
  			
   			<button type="submit" class="btn btn-outline-primary">Submit</button>
   			<button type="reset" class="btn btn-outline-primary">Cancel</button>

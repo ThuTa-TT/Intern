@@ -33,7 +33,7 @@ class PetregController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     
+
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -64,7 +64,9 @@ class PetregController extends Controller
     public function edit($id)
     {
         //dd($id);
-        // $pet=
+        $pet=petre::find($id);
+        //dd($pet);
+        return view('edit',compact('pet'));
     }
 
     /**
@@ -76,7 +78,23 @@ class PetregController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $pet=petre::find($id);
+        //dd($pet);
+        $pet->oname=request('oname');
+        $pet->date=request('date');
+        $pet->pname=request('pname');
+        $pet->gender=request('gender');
+        $pet->age=request('age');
+        $pet->type=request('type');
+        $pet->color=request('color');
+        $pet->phone=request('phone');
+        $pet->add=request('add');
+        $pet->email=request('email');
+        $pet->pwd=request('pwd');
+        $pet->save();
+
+        return redirect()->route('petregister');
     }
 
     /**
